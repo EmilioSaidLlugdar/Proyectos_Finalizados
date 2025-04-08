@@ -6,9 +6,10 @@ class Color:
     def color(self): #-------get
         return self._color
 
-    @color.setter() #------ set
+    @color.setter #------ set
     def color(self,color):
         self._color = color
 
     def __str__(self):
         return f'Color [color: {self._color}]'
+
