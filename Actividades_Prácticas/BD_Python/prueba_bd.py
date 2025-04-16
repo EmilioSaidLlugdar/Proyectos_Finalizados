@@ -11,10 +11,17 @@ try:
     with conexion:
         with conexion.cursor() as cursor:
             sentencia = 'SELECT * FROM persona WHERE id_persona IN %s'
-            id_persona = input('Ingrese un id_persona:  ')
-            cursor.execute(sentencia, (id_persona,))
+
+            # llaves_primarias = ((1,2,3),)
+            # id_persona = input('Ingrese un id_persona:  ')
+            #pedimos al usuario que ingrese info y lo tomamos como tupla
+
+            entrada = input('Proporciona los if \'s a buscar (separado por comas):  ')
+            llaves_primarias = (tuple(entrada.split(',')),) #convertimos lo ingresado a tupla y eliminamos las comas con split --> convertimos en una tupla de tuplas
+            cursor.execute(sentencia,llaves_primarias)
             registros = cursor.fetchall()
-            print(registros)
+            for registro in registros:
+                print(registro)
 except Exception as e:
     print(f'Ocurrió un error: {e}')
 finally:
