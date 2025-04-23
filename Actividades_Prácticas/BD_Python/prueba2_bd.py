@@ -32,7 +32,7 @@ try:
             sentencia = 'DELETE FROM persona WHERE id_persona IN %s'
             # valores = (6,)
             #ahora lo hacemos dinamico
-            entrada = input('Proporciona los id persona a eliminar:  ')
+            entrada = input('Proporciona los id persona a eliminar separado por coma:  ')
             valores=(tuple(entrada.split(',')),)
             cursor.execute(sentencia,valores)
             registros_eliminados = cursor.rowcount #regresa registros modificados
