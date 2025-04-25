@@ -9,7 +9,7 @@ conexion = bd.connect(
 
 try:
     #con with el commit se realiza automaticamente
-    #sin necesidad de abrir ni cerrar 
+    #sin necesidad de abrir ni cerrar
     with conexion:
         with conexion.cursor() as cursor:
 
